@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment</title>
+</head>
+<body>
+        <h1>Employee Form</h1>
+       <form id="myform">
+        <table>
+        <tr>
+        <td><label for="employee-data"> Employee name : </label></td>
+        <td><input type="text" id="employee-data" placeholder="Enter your name" required></td>
+        </tr>
+        
+        <tr>
+        <td><label for="age-data"> Age : </label></td>
+        <td><input type="number" id="age-data" min="18" max="80" required></td>
+        </tr>    
+        
+        <tr>
+        <td><label for="gender-data">Gender :</label></td>
+        <td><input type="radio" name="gender"value="male" required> male
+        <input type="radio" name="gender" value="Female" required>female</td>
+        </tr>
+      
+
+        <tr>    
+        <td><label for="list-data"> Designation : </label></td>
+    <td><input type="text" list="myDatalist" required>
+        <datalist id="myDatalist">
+            <option value="Trainee software engineer"></option>
+            <option value="software engineer"></option>
+            <option value="Project Manager"></option>
+            <option value="Head of Department"></option>
+        </datalist></td>
+        </tr>
+
+        <tr>
+        <td><label for="salary-data">Salary(in between 15k to 80k) : </label></td>
+        <td><input type="number" id="salary-data" max="80000" min="15000" required></td>
+        </tr>
+        
+        <tr>
+        <td><label for="list-data">Location : </label></td>
+    <td><input type="text" list="myDatalist2" required>
+        <datalist id="myDatalist2">
+            <option value="Ahemedabad"></option>
+            <option value="Surat"></option>
+            <option value="Rajkot"></option>
+            <option value="Vadodara"></option>
+            <option value="Gandhinagar"></option>
+            <option value="Mumbai"></option>
+        </datalist></td>  
+        </tr>
+        
+        <tr>
+        <td><label for="email-data">Email : </label></td>
+    <td><input type="email" id="email-data" required/></td>
+        </tr>
+
+        <tr> 
+        <td><label for="date-input">Date of Joining : </label></td>
+    <td><input type="date" id="date-input" required></td>
+        </tr>
+        
+        <tr>    
+        <td><label for="tel-data">Contect Number : </label></td>
+    <td><input type="tel" id="tel-data" pattern="[0-9]{10}" placeholder="0000000000"></td>
+    <td><input type="submit" value="submit"/></td> 
+        </tr>    
+    </table> 
+    </form> 
+
+</body>
+</html>
