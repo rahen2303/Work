@@ -10,23 +10,23 @@
         <table>
        <tr>     
         <td><label for="employee-data"> Employee name : </label></td>
-    <td><input type="text" id="employee-data" required /></td>
+    <td><input type="text" id="employee-data"  /></td>
        </tr>
         
         <tr>
         <td><label for="age-data"> Age : </label></td>
-        <td><input type="number" id="age-data" min="18" max="58" required></td>
+        <td><input type="number" id="age-data" min="18" max="58" ></td>
         </tr>
         
         <tr>
         <td><label for="gender"> Gender : </label></td>
-        <td><input type="radio" name="gender" value="male" required>male 
-        <input type="radio" name="gender" value="female" required>female</td>
+        <td><input type="radio" name="gender" value="male" >male 
+        <input type="radio" name="gender" value="female" >female</td>
         </tr>
 
         <tr>
         <td><label for="designation">Designation : </label></td>
-        <td><input type="text" list="mylist">
+        <td><input type="text" name="designation" id="designation" list="mylist">
         <datalist id="mylist">
             <option value="Trainee software engineer">Trainee software engineer</option>
             <option value="software engineer">software engineer</option>
@@ -37,12 +37,12 @@
 
         <tr>
         <td><label for="salary">Salary : </label></td>
-        <td><input type="number" id="salary" min="100000" max="1500000" required></td>
+        <td><input type="number" id="salary" min="100000" max="1500000" ></td>
         </tr>    
 
         <tr>    
         <td><label for="location-data">Location : </label></td>
-        <td><input type="text" id="location-data" list="mydatalist2">
+        <td><input type="text" name="location"id="location-data" list="mydatalist2">
         <datalist id="mydatalist2">
         <option value="Ahemedabad">Ahemedabad</option>
         <option value="Surat">Surat</option>
@@ -55,24 +55,76 @@
 
         <tr>    
         <td><label for="email-data"> Email : </label></td>
-        <td><input type="email" id="email-data" required></td>
+        <td><input type="email" id="email-data" ></td>
         </tr>
         
         <tr>
         <td><label for="date-input">Date of joining : </label></td>
-        <td><input type="date" id="date-input" required></td>
+        <td><input type="date" id="date-input" ></td>
         </tr>
 
         <tr>
         <td><label for="tel-data"> Contect number : </label></td>
-        <td><input type="tel" id="tel-data" pattern="[0-9]{10}" placeholder="0000000000" required></td>
+        <td><input type="tel" id="tel-data" pattern="[0-9]{10}" placeholder="0000000000"></td>
         </tr>  
      
         <tr>
-        <td><input type="submit" value="submit" style="background-color: rgb(120, 212, 255);"></td>
+        <td><input onclick="handleClick(event)" type="submit" value="submit" style="background-color: rgb(120, 212, 255);"></td>
+        <td><input onclick="handleClick2(event)" type="submit" value="retrive" style="background-color: aqua;"></td>
         </tr>
     
     </table>   
     </form>
+        <div id="data">
+            no data
+        </div>
+    <script>
+        function handleClick(event)
+        {
+            event.preventDefault();
+            name = document.getElementById("employee-data").value;
+           
+            age = document.getElementById("age-data").value;
+            
+            gender = document.querySelector("input[name='gender']:checked").value;
+    
+            designation = document.getElementsByName('designation')[0].value;
+        
+            salary = document.getElementById("salary").value;
+        
+            city = document.getElementsByName("location")[0].value;
+        
+            email = document.getElementById("email-data").value;
+        
+            dog = document.getElementById("date-input").value;
+        
+            mobile = document.getElementById("tel-data").value;
+
+
+            employeeData = {
+            name,
+            age,
+            gender,
+            designation,
+            salary,
+            city,
+            email,
+            dog,
+            mobile,    
+            }
+
+            employee = JSON.stringify(employeeData);
+            sessionStorage.setItem(name,employee);
+           
+        }
+    function handleClick2(event)
+    {
+        event.preventDefault();
+        name = document.getElementById("employee-data").value;
+        console.log(JSON.parse(sessionStorage.getItem(name)));
+        document.getElementById('data').innerHTML = '<div>' + JSON.parse(JSON.stringify(sessionStorage.getItem(name))) + '</div>'
+
+    }
+    </script>
 </body>
 </html>
